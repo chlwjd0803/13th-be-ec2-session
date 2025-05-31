@@ -16,7 +16,7 @@ import project.ec2session.domain.user.service.UserService;
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
-public class UserController {
+public class UserController implements UserApi {
     private final UserService userService;
 
     @GetMapping("/me")
