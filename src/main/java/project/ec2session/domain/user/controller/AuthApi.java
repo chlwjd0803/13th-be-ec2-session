@@ -20,7 +20,8 @@ public interface AuthApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
-                                "accessToken" : "<accessToken>",
+                                "status" : "200",
+                                "accessToken" : "<accessToken>"
                             }
                             """)
                     })),
@@ -28,8 +29,8 @@ public interface AuthApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
-                                "password" : "비밀번호는 필수 입력 값입니다.",
-                                "username" : "아이디는 필수 입력 값입니다."
+                                "status" : "400",
+                                "message" : "fieldName : 필드는 필수입니다."
                             }
                             """)
                     })),
@@ -53,6 +54,7 @@ public interface AuthApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
+                                "status" : "200",
                                 "userId" : "<userId>"
                             }
                             """)
@@ -61,9 +63,8 @@ public interface AuthApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
-                                "password": "비밀번호는 필수 입력 값입니다.",
-                                "nickname": "닉네임은 필수 입력 값입니다.",
-                                "username": "아이디는 필수 입력 값입니다."
+                                "status" : "400",
+                                "message" : "fieldName : 필드는 필수입니다."
                             }
                             """)
                     }))

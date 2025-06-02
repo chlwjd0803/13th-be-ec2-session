@@ -1,5 +1,6 @@
 package project.ec2session.domain.user.controller;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,7 @@ import project.ec2session.domain.user.service.UserService;
 @RestController
 @RequestMapping("/api/v1/users")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "BearerAuth")
 public class UserController implements UserApi {
     private final UserService userService;
 

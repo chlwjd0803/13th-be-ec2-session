@@ -21,6 +21,7 @@ public interface UserApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
+                                "status" : "200",
                                 "userId": "<userId>",
                                 "username": "<username>",
                                 "nickname": "<nickname>"
@@ -47,16 +48,11 @@ public interface UserApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
+                                "status" : "200",
                                 "userId": "<userId>",
                                 "username": "<username>",
                                 "nickname": "<nickname>"
                             }
-                            {
-                                "userId": "<userId>",
-                                "username": "<username>",
-                                "nickname": "<nickname>"
-                            }
-                            ...
                             """)
                     })),
             @ApiResponse(responseCode = "403", description = "토큰 인증 실패, 토큰 없음",
@@ -81,7 +77,8 @@ public interface UserApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
-                                "nickname" : "닉네임은 필수 입력 값입니다."
+                                "status" : "400",
+                                "message" : "fieldName : 필드는 필수입니다."
                             }
                             """)
                     })),
