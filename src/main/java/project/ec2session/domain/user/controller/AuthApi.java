@@ -20,7 +20,6 @@ public interface AuthApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
-                                "status" : "200",
                                 "accessToken" : "<accessToken>"
                             }
                             """)
@@ -29,17 +28,25 @@ public interface AuthApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
-                                "status" : "400",
-                                "message" : "fieldName : 필드는 필수입니다."
+                                "fieldName" : "필드는 필수 입력 값입니다."
                             }
                             """)
                     })),
-            @ApiResponse(responseCode = "404", description = "로그인실패, 정보불일치",
+            @ApiResponse(responseCode = "404", description = "로그인실패, 아이디 정보 없음",
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
                                 "status" : "404",
                                 "message" : "정보를 정확히 입력해주세요."
+                            }
+                            """)
+                    })),
+            @ApiResponse(responseCode = "404", description = "로그인실패, 잘못된 비밀번호",
+                    content = @Content(mediaType = "application/json", examples = {
+                            @ExampleObject(value = """
+                            {
+                                "status" : "404",
+                                "message" : "잘못된 비밀번호입니다."
                             }
                             """)
                     }))
@@ -54,7 +61,6 @@ public interface AuthApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
-                                "status" : "200",
                                 "userId" : "<userId>"
                             }
                             """)
@@ -63,8 +69,7 @@ public interface AuthApi {
                     content = @Content(mediaType = "application/json", examples = {
                             @ExampleObject(value = """
                             {
-                                "status" : "400",
-                                "message" : "fieldName : 필드는 필수입니다."
+                                "fieldName" : "필드는 필수 입력 값입니다."
                             }
                             """)
                     }))
